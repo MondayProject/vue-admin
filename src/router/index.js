@@ -5,7 +5,7 @@ const routers = {
       name: 'login',
       component: () => import('@/pages/login/login'),
       meta: {
-        title: '登录'
+        title: '登入'
       }
     },
     { path: '*', redirect: '/home/home' }
@@ -16,7 +16,7 @@ const routers = {
       name: 'home',
       component: () => import('@/pages/home/home'),
       meta: {
-        title: '概览'
+        title: '首頁'
       }
     }
   ],
@@ -25,14 +25,14 @@ const routers = {
     name: 'articleList',
     component: () => import('@/pages/articleManage/articleList'),
     meta: {
-      title: '文章列表'
+      title: '衛教文章列表'
     }
   }, {
     path: '/articleManage/editArticle',
     name: 'editArticle',
     component: () => import('@/pages/articleManage/editArticle'),
     meta: {
-      title: '新增文章'
+      title: '新增衛教文章'
     }
   }, {
     path: '/articleManage/articleDesc',
@@ -40,7 +40,7 @@ const routers = {
     show: 'false',
     component: () => import('@/pages/articleManage/articleDesc'),
     meta: {
-      title: '文章详情'
+      title: '文章內容'
     }
   }],
   menuManage: [{
@@ -48,14 +48,14 @@ const routers = {
     name: 'menuList',
     component: () => import('@/pages/menuManage/menuList'),
     meta: {
-      title: '菜单列表'
+      title: '病患列表'
     }
   }, {
     path: '/menuManage/addMenu',
     name: 'addMenu',
     component: () => import('@/pages/menuManage/addMenu'),
     meta: {
-      title: '新增菜单'
+      title: '新增病患'
     }
   }, {
     path: '/menuManage/menuList/menuDesc',
@@ -63,7 +63,7 @@ const routers = {
     component: () => import('@/pages/menuManage/menuDesc'),
     show: 'false',
     meta: {
-      title: '菜单详情'
+      title: '病患資訊'
     }
   }],
   roleManage: [{
@@ -109,14 +109,14 @@ const routers = {
     name: 'userList',
     component: () => import('@/pages/userManage/userList'),
     meta: {
-      title: '用户列表'
+      title: '個管師列表'
     }
   }, {
     path: '/userManage/addUser',
     name: 'addUser',
     component: () => import('@/pages/userManage/addUser'),
     meta: {
-      title: '新增用户'
+      title: '新增個管師'
     }
   }, {
     path: '/userManage/userList/userDesc',
@@ -124,7 +124,7 @@ const routers = {
     component: () => import('@/pages/userManage/userDesc'),
     show: 'false',
     meta: {
-      title: '用户详情'
+      title: '個管師資料'
     }
   }],
   categoryManage: [{
@@ -151,18 +151,19 @@ const routers = {
     }
   }],
   tagsManage: [{
-    path: '/userManage/userList',
-    name: 'userList',
-    component: () => import('@/pages/userManage/userList'),
+    path: '/categoryManage/categoryList/categoryDesc',
+    name: 'categoryDesc',
+    component: () => import('@/pages/categoryManage/categoryDesc'),
+    show: 'false',
     meta: {
-      title: '用户列表'
+      title: '分类详情'
     }
   }, {
     path: '/userManage/addUser',
     name: 'addUser',
     component: () => import('@/pages/userManage/addUser'),
     meta: {
-      title: '新增用户'
+      title: '新增個管師'
     }
   }, {
     path: '/userManage/userList/userDesc',
@@ -172,22 +173,17 @@ const routers = {
     meta: {
       title: '用户详情'
     }
-  }], 
+  }],
   commentManage: [{
-    path: '/userManage/userList',
-    name: 'userList',
-    component: () => import('@/pages/userManage/userList'),
+    path: '/categoryManage/categoryList/categoryDesc',
+    name: 'categoryDesc',
+    component: () => import('@/pages/categoryManage/categoryDesc'),
+    show: 'false',
     meta: {
-      title: '用户列表'
+      title: '分类详情'
     }
-  }, {
-    path: '/userManage/addUser',
-    name: 'addUser',
-    component: () => import('@/pages/userManage/addUser'),
-    meta: {
-      title: '新增用户'
-    }
-  }, {
+  },
+   {
     path: '/userManage/userList/userDesc',
     name: 'userDesc',
     component: () => import('@/pages/userManage/userDesc'),

@@ -25,15 +25,15 @@ exports.userAddAction = function () {
             params: {
                 "userCode": req.body.userCode,
             },
-            errorRespMsg: '用户已存在'
+            errorRespMsg: '個管師已存在'
         }
         userDao.addUser(user, dbHelper, options, function (result) {
             if (result.respCode === '000000') {
                 let respMsg
                 if (req.body.userName) {
-                    respMsg = "保存成功"
+                    respMsg = "儲存成功"
                 } else {
-                    respMsg = "注册成功,即将登录..."
+                    respMsg = "註冊成功,即將登入..."
                 }
                 result = filterData({
                     respMsg,

@@ -25,7 +25,7 @@ exports.menuAddAction = function () {
             params: {
                 "menuId": req.body.menuId,
             },
-            errorRespMsg: '菜单已存在'
+            errorRespMsg: '病患已存在'
         }
         menuDao.addMenu(menu, dbHelper, options, function (result) {
             res.json(result);

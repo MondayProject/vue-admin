@@ -2,7 +2,7 @@
   <div>
     <i-layout>
       <i-breadcrumb :t2="breadcrumbTitle">
-        <Button class="fr vue-back-btn" @click="$router.go(-1)" shape="circle">返回</Button>
+                <Button class="fr vue-back-btn" @click="$router.go(-1)" shape="circle">返回</Button>
       </i-breadcrumb>
       <div class="vue-panel-desc">
         <Row type="flex" justify="center">
@@ -145,10 +145,10 @@ export default {
     if (this.$route.query && this.$route.query.userCode) {
       this.formValidate.userCode = this.$route.query.userCode;
       this.findUserInfo();
-      this.breadcrumbTitle = "修改用户";
+      this.breadcrumbTitle = "修改個管師";
     } else {
       // 新增用户时提示一下
-      this.breadcrumbTitle = "新增用户";
+      this.breadcrumbTitle = "新增個管師";
       this.message();
     }
   },

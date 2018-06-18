@@ -1,45 +1,45 @@
 <template>
   <div class="bg">
     <div class="title">
-      {{type==='login'?'登录':type==='register'?'注册':'重置密码'}}
+      {{type==='login'?'登入':type==='register'?'註冊':'重設密碼'}}
     </div>
     <div class="form-container">
       <Form ref="formInline" :model="formInline" :rules="ruleInline">
         <FormItem prop="userCode">
-          <Input type="text" v-model="formInline.userCode" clearable placeholder="用户名">
+          <Input type="text" v-model="formInline.userCode" clearable placeholder="帳號">
           <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem prop="password">
-          <Input type="password" v-model="formInline.password" clearable :placeholder="type==='reset'?'新密码':'密码'">
+          <Input type="password" v-model="formInline.password" clearable :placeholder="type==='reset'?'新密碼':'密碼'">
           <Icon type="ios-locked-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem prop="passwdCheck" v-show="type!=='login'">
-          <Input type="password" v-model="formInline.passwdCheck" clearable :placeholder="type==='register'?'确认密码':'确认新密码'">
+          <Input type="password" v-model="formInline.passwdCheck" clearable :placeholder="type==='register'?'確認密碼':'確認新密碼'">
           <Icon type="ios-locked-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem>
           <Button long type="primary" :loading="loading" @click="handleSubmit('formInline')">
-            {{type==='login'?'登录':type==='register'?'立即注册':'重置密码'}}
+            {{type==='login'?'登入':type==='register'?'立即註冊':'重設密碼'}}
           </Button>
         </FormItem>
         <div class="link">
           <div class="fl" v-show="type!=='reset'">
-            <a @click="loginType('reset')">忘记密码？</a>
+            <a @click="loginType('reset')">忘記密碼？</a>
           </div>
           <div class="fr" v-show="type==='login'">
-            没有账号？
-            <a @click="loginType('register')">去注册</a>
+            沒有帳號？
+            <a @click="loginType('register')">去註冊</a>
           </div>
           <div class="fr" v-show="type==='register'">
-            有账号？
-            <a @click="loginType('login')">去登录</a>
+            有帳號？
+            <a @click="loginType('login')">去登入</a>
           </div>
           <div class="fr" v-show="type==='reset'">
-            记得密码？
-            <a @click="loginType('login')">去登录</a>
+            記得密碼？
+            <a @click="loginType('login')">去登入</a>
           </div>
         </div>
       </Form>
@@ -93,25 +93,25 @@ export default {
           userCode: [
             {
               required: true,
-              message: "请输入用户名",
+              message: "請輸入帳號",
               trigger: "blur"
             },
             {
               pattern: /^(?!\d+$)(?![A-Za-z]+$)[a-zA-Z0-9]{6,20}$/,
-              message: "请输入6-20个数字和英文大小写字符",
+              message: "請輸入 6-20 個數字和英文大小寫",
               trigger: "blur"
             }
           ],
           password: [
             {
               required: true,
-              message: "请输入密码",
+              message: "請輸入密碼",
               trigger: "blur"
             },
             {
               type: "string",
               min: 6,
-              message: "密码长度不少于6位",
+              message: "密碼長度不少於 6 位",
               trigger: "blur"
             }
           ]
@@ -120,7 +120,7 @@ export default {
       if (type !== "login") {
         const password = (rule, value, callback) => {
           if (value === "") {
-            callback(new Error("请输入密码"));
+            callback(new Error("請輸入密碼"));
           } else {
             if (this.formInline.passwdCheck !== "") {
               // 对第二个密码框单独验证
@@ -131,9 +131,9 @@ export default {
         };
         const validatePassCheck = (rule, value, callback) => {
           if (value === "") {
-            callback(new Error("请输入确认密码"));
+            callback(new Error("請輸入確認密碼"));
           } else if (value !== this.formInline.password) {
-            callback(new Error("两次输入的密码不一致"));
+            callback(new Error("兩次輸入的密碼不一致"));
           } else {
             callback();
           }
@@ -142,12 +142,12 @@ export default {
           userCode: [
             {
               required: true,
-              message: "请输入用户名",
+              message: "請輸入帳號",
               trigger: "blur"
             },
             {
               pattern: /^(?!\d+$)(?![A-Za-z]+$)[a-zA-Z0-9]{6,20}$/,
-              message: "请输入6-20个数字和英文大小写字符",
+              message: "請輸入 6-20 個數字和英文大小寫",
               trigger: "blur"
             }
           ],
@@ -159,7 +159,7 @@ export default {
             {
               type: "string",
               min: 6,
-              message: "密码长度不少于6位",
+              message: "密碼長度不少於 6 位",
               trigger: "blur"
             }
           ],
@@ -171,7 +171,7 @@ export default {
             {
               type: "string",
               min: 6,
-              message: "确认密码长度不少于6位",
+              message: "確認密碼長度不少於 6 位",
               trigger: "blur"
             }
           ]

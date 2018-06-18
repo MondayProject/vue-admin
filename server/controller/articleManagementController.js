@@ -66,7 +66,7 @@ exports.articleFindAction = function () {
                     articleId: conditions.params._id
                 }
             }
-            // 查出文章的分类
+            // 查出文章的分類
             category_articleController.category_articleFindRefAction(params).then((resp) => {
                 for (let j = 0; j < result.values.length; j++) {
                     for (let i = 0; i < resp.values.length; i++) {

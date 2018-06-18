@@ -1,10 +1,10 @@
 const filterData = require('../utils/filterData')
 
-/** 
- * 公共addData方法 
- * @param model 要操作数据库的模型 
- * @param conditions 增加的条件,如{id:xxx} 
- * @param callback 
+/**
+ * 公共addData方法
+ * @param model 要操作数据库的模型
+ * @param conditions 增加的条件,如{id:xxx}
+ * @param callback
  */
 exports.addData = function (model, conditions, options, callback) {
     model.findOne(options.params, function (err, doc) {
@@ -21,7 +21,7 @@ exports.addData = function (model, conditions, options, callback) {
             if (err) {
                 console.log(error);
                 let obj = filterData({
-                    respMsg: '服务器异常',
+                    respMsg: '伺服器異常',
                     respCode: '999999'
 
                 })
@@ -31,7 +31,7 @@ exports.addData = function (model, conditions, options, callback) {
                     body: {
                         _id: result._id
                     },
-                    respMsg: '添加成功',
+                    respMsg: '新增成功',
                 })
                 callback(obj);
             }
@@ -39,13 +39,13 @@ exports.addData = function (model, conditions, options, callback) {
     });
 
 }
-/** 
- * 公共update方法 
- * @param model 要操作数据库的模型 
- * @param conditions 增加的条件,如{id:xxx} 
- * @param update 更新条件{set{id:xxx}} 
- * @param options  
- * @param callback 
+/**
+ * 公共update方法
+ * @param model 要操作数据库的模型
+ * @param conditions 增加的条件,如{id:xxx}
+ * @param update 更新条件{set{id:xxx}}
+ * @param options
+ * @param callback
  */
 exports.updateData = function (model, conditions, update, options, callback) {
 
@@ -53,7 +53,7 @@ exports.updateData = function (model, conditions, update, options, callback) {
         if (error) {
             console.log(error);
             let obj = filterData({
-                respMsg: '服务器异常',
+                respMsg: '伺服器異常',
                 respCode: '999999'
             })
             callback(obj);
@@ -67,7 +67,7 @@ exports.updateData = function (model, conditions, update, options, callback) {
             }
             else {
                 let obj = filterData({
-                    respMsg: '暂无数据',
+                    respMsg: '暫無數據',
                     respCode: '000000'
                 })
                 callback(obj);
@@ -77,30 +77,30 @@ exports.updateData = function (model, conditions, update, options, callback) {
     });
 }
 
-/** 
- * 公共remove方法 
- * @param model 
- * @param conditions 
- * @param callback 
+/**
+ * 公共remove方法
+ * @param model
+ * @param conditions
+ * @param callback
  */
 exports.removeData = function (model, conditions, callback) {
     model.remove(conditions, function (error, result) {
         if (error) {
             console.log(error);
             let obj = filterData({
-                respMsg: '服务器异常',
+                respMsg: '伺服器異常',
                 respCode: '999999'
             })
             callback(obj);
         } else {
             if (result.n != 0) {
                 let obj = filterData({
-                    respMsg: "删除成功"
+                    respMsg: "刪除成功"
                 })
                 callback(obj);
             } else {
                 let obj = filterData({
-                    respMsg: '暂无数据',
+                    respMsg: '暫無數據',
                     respCode: '000000'
                 })
                 callback(obj);
@@ -110,20 +110,20 @@ exports.removeData = function (model, conditions, callback) {
     });
 }
 
-/** 
- * 公共find方法 非关联查找 
- * @param model 
- * @param conditions 
- * @param fields 查找时限定的条件，如顺序，某些字段不查找等 
- * @param options 
- * @param callback 
+/**
+ * 公共find方法 非关联查找
+ * @param model
+ * @param conditions
+ * @param fields 查找时限定的条件，如顺序，某些字段不查找等
+ * @param options
+ * @param callback
  */
 exports.findData = function (model, conditions, fields, options, callback) {
     model.count(conditions.params, function (err, total) {
         if (err) {
             console.log(err)
             let obj = filterData({
-                respMsg: '请求总条数失败'
+                respMsg: '請求失敗'
             })
             callback(obj);
         }
@@ -131,7 +131,7 @@ exports.findData = function (model, conditions, fields, options, callback) {
             if (error) {
                 console.log(error);
                 let obj = filterData({
-                    respMsg: '服务器异常',
+                    respMsg: '伺服器異常',
                     respCode: '999999'
                 })
                 callback(obj);
@@ -152,7 +152,7 @@ exports.findData = function (model, conditions, fields, options, callback) {
                 } else {
                     console.log(error);
                     let obj = filterData({
-                        respMsg: '暂无数据',
+                        respMsg: '暫無數據',
                         respCode: '000000'
                     })
                     callback(obj);
@@ -164,16 +164,16 @@ exports.findData = function (model, conditions, fields, options, callback) {
 
 
 
-/** 
- * 公共populate find方法 
- * 是关联查找 
- * @param model 
- * @param conditions 
- * @param path :The field need to be refilled （需要覆盖的字段） 
- * @param fields :select fields (name -_id,Separated by a space field,In front of the field name plus "-"said not filled in) 
- * @param refmodel （关联的字段，有path可为null） 
- * @param options 
- * @param callback 
+/**
+ * 公共populate find方法
+ * 是关联查找
+ * @param model
+ * @param conditions
+ * @param path :The field need to be refilled （需要覆盖的字段）
+ * @param fields :select fields (name -_id,Separated by a space field,In front of the field name plus "-"said not filled in)
+ * @param refmodel （关联的字段，有path可为null）
+ * @param options
+ * @param callback
  */
 exports.findDataPopulation = function (model, conditions, path, fields, refmodel, options, callback) {
     model.find(conditions)
@@ -182,7 +182,7 @@ exports.findDataPopulation = function (model, conditions, path, fields, refmodel
             if (err) {
                 console.log(error);
                 let obj = filterData({
-                    respMsg: '服务器异常',
+                    respMsg: '伺服器異常',
                     respCode: '999999'
                 })
                 callback(obj);
@@ -203,7 +203,7 @@ exports.findDataPopulation = function (model, conditions, path, fields, refmodel
                 }
                 else {
                     let obj = filterData({
-                        respMsg: '暂无数据',
+                        respMsg: '暫無數據',
                         respCode: '000000'
                     })
                     callback(obj);
@@ -213,4 +213,4 @@ exports.findDataPopulation = function (model, conditions, path, fields, refmodel
 
         });
 
-}  
+}

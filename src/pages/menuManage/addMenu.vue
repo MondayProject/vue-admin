@@ -8,50 +8,50 @@
                 <Row type="flex" justify="center">
                     <Col span="12" :md="14" :lg="12" :xs="24" :sm="24">
                     <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
-                        <FormItem label="菜单编码:" prop="menuId">
-                            <label v-if="!$route.query.menuId" placeholder="请输入菜单编码">{{formValidate.menuId}}
-                                <a style="margin-left:10px" @click="makeCode">换一个</a>
+                        <FormItem label="病患編碼:" prop="menuId">
+                            <label v-if="!$route.query.menuId" placeholder="請輸入病患編碼">{{formValidate.menuId}}
+                                <a style="margin-left:10px" @click="makeCode">換一個</a>
                             </label>
                             <label v-if="$route.query.menuId">{{formValidate.menuId}}</label>
                         </FormItem>
-                        <FormItem label="创建人:" prop="userCode">
-                            <Select v-model="formValidate.userCode" placeholder="请选择创建人">
+                        <FormItem label="手機號碼:" prop="userCode">
+                            <Select v-model="formValidate.userCode" placeholder="請輸入手機號碼">
                                 <Option value="100">前台</Option>
                                 <Option value="200">后台</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="菜单名称:" prop="menuName">
-                            <Input v-model="formValidate.menuName" placeholder="请输入菜单名称"></Input>
+                        <FormItem label="病患姓名:" prop="menuName">
+                            <Input v-model="formValidate.menuName" placeholder="請輸入病患姓名"></Input>
                         </FormItem>
-                        <FormItem label="所属平台:" prop="platType">
-                            <Select v-model="formValidate.platType" placeholder="请选择所属平台">
-                                <Option value="100">前台</Option>
-                                <Option value="200">后台</Option>
+                        <FormItem label="目前狀況:" prop="platType">
+                            <Select v-model="formValidate.platType" placeholder="請選擇目前狀況">
+                                <Option value="100">收案中</Option>
+                                <Option value="200">已結案</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="菜单级别:" prop="menuLevel">
+                        <FormItem label="病患性別:" prop="menuLevel">
                             <Select v-model="formValidate.menuLevel" placeholder="请选择菜单级别">
-                                <Option value="100">一级</Option>
-                                <Option value="200">二级</Option>
+                                <Option value="100">男</Option>
+                                <Option value="200">女</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="上级菜单:" prop="pmenuId">
-                            <Select v-model="formValidate.pmenuId" placeholder="请选择上级菜单">
+                        <FormItem label="出生日期:" prop="pmenuId">
+                            <Select v-model="formValidate.pmenuId" placeholder="請選擇日期">
                                 <Option value="100">前台</Option>
                                 <Option value="200">后台</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="菜单描述:" prop="remark">
-                            <Input v-model="formValidate.remark" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入菜单描述"></Input>
+                        <FormItem label="備註:" prop="remark">
+                            <Input v-model="formValidate.remark" type="textarea" :autosize="{minRows: 2,maxRows: 5}"></Input>
                         </FormItem>
-                        <FormItem label="菜单图标编码:" prop="icon">
-                            <Input v-model="formValidate.icon" placeholder="请输入菜单图标编码"></Input>
+                        <FormItem label="病歷號:" prop="icon">
+                            <Input v-model="formValidate.icon" placeholder="請輸入病歷號碼"></Input>
                         </FormItem>
-                        <FormItem label="菜单地址:" prop="url">
-                            <Input v-model="formValidate.url" placeholder="请输入菜单地址"></Input>
+                        <FormItem label="地址:" prop="url">
+                            <Input v-model="formValidate.url" placeholder="請輸入地址"></Input>
                         </FormItem>
                         <FormItem>
-                            <Button type="primary" @click="handleSubmit('formValidate')">保存</Button>
+                            <Button type="primary" @click="handleSubmit('formValidate')">儲存</Button>
                             <Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">清空</Button>
                         </FormItem>
                     </Form>
@@ -85,56 +85,43 @@ export default {
         menuName: [
           {
             required: true,
-            message: "请输入菜单名称",
-            trigger: "blur"
-          },
-          {
-            pattern: /^[\u4E00-\u9FA5]{2,5}$/,
-            message: "请输入2-5个中文菜单名称",
+            message: "請輸入病患名稱",
             trigger: "blur"
           }
         ],
         url: [
           {
             required: true,
-            message: "请输入菜单地址",
+            message: "請輸入地址",
             trigger: "blur"
           }
         ],
         platType: [
           {
             required: true,
-            message: "请选择所属平台",
+            message: "請選擇目前狀況",
             trigger: "blur"
           }
         ],
         menuLevel: [
           {
             required: true,
-            message: "请选择菜单级别",
+            message: "請選擇病患性別",
             trigger: "blur"
           }
         ],
         icon: [
           {
             required: true,
-            message: "请输入菜单图标编码",
+            message: "請輸入病歷號碼",
             trigger: "blur"
           }
         ],
         pmenuId: [
           {
             required: true,
-            message: "请选择上级菜单",
+            message: "請選擇日期",
             trigger: "change"
-          }
-        ],
-        remark: [
-          {
-            type: "string",
-            max: 100,
-            message: "菜单描述不能超过100个字",
-            trigger: "blur"
           }
         ]
       }
@@ -144,10 +131,10 @@ export default {
     if (this.$route.query && this.$route.query.menuId) {
       this.formValidate.menuId = this.$route.query.menuId;
       this.findMenuInfo();
-      this.breadcrumbTitle = "修改菜单";
+      this.breadcrumbTitle = "修改病人資料";
     } else {
       // 新增菜单时提示一下
-      this.breadcrumbTitle = "新增菜单";
+      this.breadcrumbTitle = "新增病人資料";
       this.message();
     }
   },
@@ -172,11 +159,11 @@ export default {
     message() {
       this.makeCode();
       this.$Notice.open({
-        title: "温馨提示",
+        title: "温馨提醒",
         duration: 10,
         render: h => {
           return h("span", {}, [
-            h("span", {}, "新增菜单编码为:"),
+            h("span", {}, "新增病患編碼為:"),
             h(
               "span",
               {
@@ -189,7 +176,7 @@ export default {
                   fontWeight: "800"
                 }
               },
-              "当前时间戳和随机字母组成"
+              "目前時間與隨機碼組成"
             )
           ]);
         }

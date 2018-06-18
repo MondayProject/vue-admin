@@ -2,49 +2,48 @@
   <i-layout>
     <i-breadcrumb>
     </i-breadcrumb>
-
     <div class="vue-panel">
       <Form :model="formItem" :label-width="80">
         <Row>
           <Col :xs="24" :sm="24" :md="8" :lg="8">
-          <FormItem label="创建日期:">
-            <DatePicker style="width:100%" v-model="formItem.createTime" format="yyyy-MM-dd" type="daterange" placement="bottom-start" placeholder="请选择日期"></DatePicker>
+          <FormItem label="創建日期:">
+            <DatePicker style="width:100%" v-model="formItem.createTime" format="yyyy-MM-dd" type="daterange" placement="bottom-start" placeholder="請選擇日期"></DatePicker>
           </FormItem>
           </Col>
           <Col :xs="24" :sm="24" :md="8" :lg="8">
-          <FormItem label="用户姓名:">
-            <Input v-model="formItem.userName" placeholder="请输入用户姓名" clearable></Input>
+          <FormItem label="個管師姓名:">
+            <Input v-model="formItem.userName" placeholder="請輸入個管師姓名" clearable></Input>
           </FormItem>
           </Col>
           <Col :xs="24" :sm="24" :md="8" :lg="8">
-          <FormItem label="身份证号:">
-            <Input v-model="formItem.identifyNo" placeholder="请输入身份证号" clearable></Input>
+          <FormItem label="工作證號:">
+            <Input v-model="formItem.identifyNo" placeholder="請輸入工作證號" clearable></Input>
           </FormItem>
           </Col>
           <Col :xs="24" :sm="24" :md="8" :lg="8">
-          <FormItem label="用户类型:">
+          <FormItem label="性別:">
             <Select v-model="formItem.refUserRoleCode">
-              <Option value="USER">普通用户</Option>
-              <Option value="ADMIN">管理员</Option>
+              <Option value="USER">男</Option>
+              <Option value="ADMIN">女</Option>
             </Select>
           </FormItem>
           </Col>
           <Col :xs="24" :sm="24" :md="8" :lg="8">
-          <FormItem label="用户状态:">
+          <FormItem label="目前狀態:">
             <Select v-model="formItem.status">
-              <Option value="500">禁用</Option>
-              <Option value="100">启用</Option>
+              <Option value="500">在職</Option>
+              <Option value="100">離職</Option>
             </Select>
           </FormItem>
           </Col>
           <Col :xs="24" :sm="24" :md="8" :lg="8">
-          <FormItem label="用户名:">
-            <Input v-model="formItem.userCode" placeholder="请输入用户名" clearable></Input>
+          <FormItem label="手機號碼:">
+            <Input v-model="formItem.userCode" placeholder="請輸入手機號碼" clearable></Input>
           </FormItem>
           </Col>
         </Row>
         <FormItem>
-          <Button type="primary" @click="getList" style="width:80px" long shape="circle">查询</Button>
+          <Button type="primary" @click="getList" style="width:80px" long shape="circle">查詢</Button>
           <Button type="ghost" style="width:80px;margin-left: 8px" @click="clearForm" shape="circle">清除</Button>
         </FormItem>
       </Form>
@@ -52,7 +51,7 @@
     <div class="vue-panel-table">
       <nav-content>
         <router-link to="/userManage/addUser">
-          <Button class="fr vue-back-btn" shape="circle">新增用户</Button>
+          <Button class="fr vue-back-btn" shape="circle">新增個管師</Button>
         </router-link>
       </nav-content>
       <Table :loading="tableLoading" :data="tableData1" :columns="tableColumns1" stripe></Table>
@@ -109,13 +108,13 @@ export default {
       tableData1: [],
       tableColumns1: [
         {
-          title: "序号",
+          title: "編號",
           type: "index",
           width: 60,
           align: "center"
         },
         {
-          title: "创建日期",
+          title: "創建日期",
           width: 150,
           sortable: true,
           key: "createTime",
@@ -128,25 +127,25 @@ export default {
           }
         },
         {
-          title: "用户名",
+          title: "手機",
           key: "userCode",
           sortable: true
         },
         {
-          title: "用户姓名",
+          title: "姓名",
           key: "userName"
         },
         {
-          title: "手机号码",
+          title: "電話",
           key: "phonenum"
         },
         {
-          title: "身份证号码",
+          title: "工作證號",
           width: 200,
           key: "identifyNo"
         },
         {
-          title: "用户类型",
+          title: "性別",
           key: "refUserRoleCode",
           render: (h, params) => {
             const row = params.row;
@@ -157,7 +156,7 @@ export default {
           }
         },
         {
-          title: "用户状态",
+          title: "目前狀態",
           key: "status",
           render: (h, params) => {
             const row = params.row;
@@ -204,8 +203,8 @@ export default {
                       this.openModal({
                         id: params.row._id,
                         modalType: "delete",
-                        modalTitle: "提示",
-                        modalContent: "此操作将永久删除该项, 是否继续?"
+                        modalTitle: "提醒",
+                        modalContent: "將永遠刪除個管師資料，確定嗎？"
                       });
                     }
                   }
@@ -225,7 +224,7 @@ export default {
                     }
                   }
                 },
-                "详情"
+                "更多"
               )
             ]);
           }

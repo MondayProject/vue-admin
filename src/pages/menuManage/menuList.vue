@@ -7,38 +7,38 @@
             <Form :model="formItem" :label-width="80">
                 <Row>
                     <Col :xs="24" :sm="24" :md="8" :lg="8">
-                    <FormItem label="创建日期:">
-                        <DatePicker style="width:100%" v-model="formItem.createTime" format="yyyy-MM-dd" type="daterange" placement="bottom-start" placeholder="请选择日期"></DatePicker>
+                    <FormItem label="初診日期:">
+                        <DatePicker style="width:100%" v-model="formItem.createTime" format="yyyy-MM-dd" type="daterange" placement="bottom-start" placeholder="請選擇日期"></DatePicker>
                     </FormItem>
                     </Col>
                     <Col :xs="24" :sm="24" :md="8" :lg="8">
-                    <FormItem label="菜单名称:">
-                        <Input v-model="formItem.menuName" placeholder="请输入菜单名称" clearable></Input>
+                    <FormItem label="病患姓名:">
+                        <Input v-model="formItem.menuName" placeholder="請輸入病患姓名" clearable></Input>
                     </FormItem>
                     </Col>
                     <Col :xs="24" :sm="24" :md="8" :lg="8">
-                    <FormItem label="菜单编码:">
-                        <Input v-model="formItem.menuId" placeholder="请输入菜单编码" clearable></Input>
+                    <FormItem label="病患編碼:">
+                        <Input v-model="formItem.menuId" placeholder="請輸入病患編碼" clearable></Input>
                     </FormItem>
                     </Col>
                     <Col :xs="24" :sm="24" :md="8" :lg="8">
-                    <FormItem label="所属平台:">
+                    <FormItem label="目前狀況:">
                         <Select v-model="formItem.platType">
-                            <Option value="100">前台</Option>
-                            <Option value="200">后台</Option>
+                            <Option value="100">收案中</Option>
+                            <Option value="200">已結案</Option>
                         </Select>
                     </FormItem>
                     </Col>
                     <Col :xs="24" :sm="24" :md="8" :lg="8">
-                    <FormItem label="菜单级别:">
+                    <FormItem label="病患性別:">
                         <Select v-model="formItem.menuLevel">
-                            <Option value="100">一级</Option>
-                            <Option value="200">二级</Option>
+                            <Option value="100">男</Option>
+                            <Option value="200">女</Option>
                         </Select>
                     </FormItem>
                     </Col>
                     <Col :xs="24" :sm="24" :md="8" :lg="8">
-                    <FormItem label="创建人:">
+                    <FormItem label="手機號碼:">
                         <Select v-model="formItem.userCode">
                             <Option value="100">一级</Option>
                             <Option value="200">二级</Option>
@@ -47,7 +47,7 @@
                     </Col>
                 </Row>
                 <FormItem>
-                    <Button type="primary" @click="getList" style="width:80px" long shape="circle">查询</Button>
+                    <Button type="primary" @click="getList" style="width:80px" long shape="circle">查詢</Button>
                     <Button type="ghost" style="width:80px;margin-left: 8px" @click="clearForm" shape="circle">清除</Button>
                 </FormItem>
             </Form>
@@ -55,7 +55,7 @@
         <div class="vue-panel-table">
             <nav-content>
                 <router-link to="/menuManage/addMenu">
-                    <Button class="fr vue-back-btn" shape="circle">新增菜单</Button>
+                    <Button class="fr vue-back-btn" shape="circle">新增病患</Button>
                 </router-link>
             </nav-content>
             <Table :loading="tableLoading" :data="tableData1" :columns="tableColumns1" stripe></Table>
@@ -112,13 +112,13 @@ export default {
       tableData1: [],
       tableColumns1: [
         {
-          title: "序号",
+          title: "編號",
           type: "index",
           width: 60,
           align: "center"
         },
         {
-          title: "创建日期",
+          title: "看病日期",
           width: 150,
           sortable: true,
           key: "createTime",
@@ -131,20 +131,20 @@ export default {
           }
         },
         {
-          title: "菜单编码",
+          title: "病患編碼",
           key: "menuId",
           sortable: true
         },
         {
-          title: "菜单名称",
+          title: "姓名",
           key: "menuName"
         },
         {
-          title: "创建人",
+          title: "手機號碼",
           key: "userCode"
         },
         {
-          title: "所属平台",
+          title: "目前狀況",
           key: "platType",
           render: (h, params) => {
             const row = params.row;
@@ -155,7 +155,7 @@ export default {
           }
         },
         {
-          title: "菜单级别",
+          title: "病患性別",
           key: "menuLevel",
           render: (h, params) => {
             const row = params.row;
@@ -205,12 +205,12 @@ export default {
                         id: params.row._id,
                         modalType: "delete",
                         modalTitle: "提示",
-                        modalContent: "此操作将永久删除该项, 是否继续?"
+                        modalContent: "將永遠刪除病患資料，確定嗎？"
                       });
                     }
                   }
                 },
-                "删除"
+                "刪除"
               ),
               h(
                 "Button",
@@ -225,7 +225,7 @@ export default {
                     }
                   }
                 },
-                "详情"
+                "更多"
               )
             ]);
           }

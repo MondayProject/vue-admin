@@ -83,7 +83,7 @@ router.delete("/list/:id", (req, res) => {
     })
         .then(user => {
             let obj = filterData({
-                respMsg: "删除成功"
+                respMsg: "刪除成功"
             })
             res.json(obj)
         })
@@ -95,7 +95,7 @@ router.post("/create", function (req, res) {
         if (doc) {
             let obj = filterData({
                 respCode: "900000",
-                respMsg: "用户已存在"
+                respMsg: "此帳號已存在"
             })
             res.json(obj)
             return false;
@@ -120,9 +120,9 @@ router.post("/create", function (req, res) {
             if (doc) {
                 let respMsg
                 if (req.body.userName) {
-                    respMsg = "保存成功"
+                    respMsg = "儲存成功"
                 } else {
-                    respMsg = "注册成功,即将登录..."
+                    respMsg = "註冊成功,即將登入..."
                 }
                 let obj = filterData({
                     respMsg,
@@ -147,7 +147,7 @@ router.post("/login", function (req, res) {
             if (err) {
 
                 let obj = filterData({
-                    respMsg: "用户名或密码错误",
+                    respMsg: "帳號或密碼錯誤",
                     respCode: "900000"
                 })
                 res.json(obj)
@@ -155,14 +155,14 @@ router.post("/login", function (req, res) {
             }
             if (doc.length == 0) {
                 let obj = filterData({
-                    respMsg: "用户名或密码错误",
+                    respMsg: "帳號或密碼錯誤",
                     respCode: "900000"
                 })
                 res.json(obj)
                 return false;
             } else {
                 let obj = filterData({
-                    respMsg: "登录成功",
+                    respMsg: "登入成功",
                     body: {
                         userName: doc[0].userName,
                         userCode: doc[0].userCode,
@@ -184,7 +184,7 @@ router.post("/userinfo", function (req, res) {
             if (err) {
 
                 let obj = filterData({
-                    respMsg: "用户不存在",
+                    respMsg: "帳號不存在",
                     respCode: "900000"
                 })
                 res.json(obj)
@@ -192,14 +192,14 @@ router.post("/userinfo", function (req, res) {
             }
             if (doc.length == 0) {
                 let obj = filterData({
-                    respMsg: "用户不存在",
+                    respMsg: "帳號不存在",
                     respCode: "900000"
                 })
                 res.json(obj)
                 return false;
             } else {
                 let obj = filterData({
-                    respMsg: "查询成功",
+                    respMsg: "查詢成功",
                     body: {
                         userName: doc[0].userName,
                         userCode: doc[0].userCode,
