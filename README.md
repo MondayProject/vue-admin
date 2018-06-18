@@ -57,121 +57,114 @@ npm run server
 ```js
 .
 
+├── LICENSE
 ├── README.md
-├── app.js #启动文件
-├── beizhu.md #字段说明
-├── build #vue-cli
-│   ├── build.js
-│   ├── check-versions.js
-│   ├── logo.png
-│   ├── utils.js
-│   ├── vue-loader.conf.js
-│   ├── webpack.base.conf.js
-│   ├── webpack.dev.conf.js
-│   └── webpack.prod.conf.js
+├── app.js
+├── beizhu.md
+├── build
+│   ├── build.js
+│   ├── check-versions.js
+│   ├── logo.png
+│   ├── utils.js
+│   ├── vue-loader.conf.js
+│   ├── webpack.base.conf.js
+│   ├── webpack.dev.conf.js
+│   └── webpack.prod.conf.js
 ├── config
-│   ├── db.js #mogodb地址
-│   ├── dev.env.js
-│   ├── index.js
-│   ├── prod.env.js
-│   └── test.env.js
+│   ├── db.js
+│   ├── dev.env.js
+│   ├── index.js
+│   ├── prod.env.js
+│   └── test.env.js
 ├── index.html
+├── package-lock.json
 ├── package.json
 ├── router
-│   └── index.js #路由分发
-├── server #后台服务层
-│   ├── DBhelper #公共sql方法
-│   │   └── dbHelper.js
-│   ├── DBsql #模型sql操作
-│   │   ├── articleDao.js
-│   │   ├── homeDao.js
-│   │   ├── menuDao.js
-│   │   ├── pageDao.js
-│   │   ├── roleDao.js
-│   │   └── userDao.js
-│   ├── controller #mvc中C层，做逻辑处理
-│   │   ├── articleManagementController.js
-│   │   ├── homeManagementController.js
-│   │   ├── menuManagementController.js
-│   │   ├── pageManagementController.js
-│   │   ├── roleManagementController.js
-│   │   └── userManagementController.js
-│   ├── models # mvc中m层，数据表模型
-│   │   ├── article.js
-│   │   ├── home.js
-│   │   ├── menu.js
-│   │   ├── page.js
-│   │   ├── role.js
-│   │   └── user.js
-│   └── utils
-│       ├── filterData.js # 返回格式处理
-├── src #前台
-│   ├── App.vue
-│   ├── assets
-│   │   └── styles
-│   ├── components #公用组件
-│   │   ├── breadcrumb.vue #面包屑
-│   │   ├── bus.js #加载条
-│   │   ├── editor.vue #富文本编辑器
-│   │   ├── layout.vue #布局
-│   │   └── navcontent.vue #导航条
-│   ├── config
-│   │   ├── env.js
-│   │   ├── index.js
-│   │   └── mUtils.js
-│   ├── data # mock数据
-│   │   ├── bar.js
-│   │   ├── connect.js
-│   │   ├── logo.js
-│   │   ├── map.js
-│   │   ├── pie.js
-│   │   ├── polar.js
-│   │   ├── scatter.js
-│   │   └── theme.json
-│   ├── favicon.ico
-│   ├── filters #过滤器
-│   │   ├── commonFilter.js
-│   │   ├── date.js
-│   │   └── index.js
-│   ├── langs #富文本编辑器中文
-│   │   └── zh_CN.js
-│   ├── libs #请求方法与配置
-│   │   ├── baseUrl.js
-│   │   ├── fetch.js
-│   │   ├── tree
-│   │   └── util.js
-│   ├── main.js
-│   ├── pages #所有页面
-│   │   ├── articleManage #文章管理
-│   │   ├── home #首页
-│   │   ├── login # 登陆 注册 重置密码
-│   │   ├── menuManage #菜单管理
-│   │   ├── pageManage #页面管理
-│   │   ├── roleManage #角色管理
-│   │   └── userManage #用户管理
-│   ├── router #vue路由
-│   │   └── index.js
-│   ├── service #所有请求由这里发出
-│   │   ├── getData.js
-│   │   └── randomWord.js
-│   ├── skins #富文本编辑器
-│   │   └── lightgray
-│   └── store #vuex
-│       ├── action.js
-│       ├── getters.js
-│       ├── index.js
-│       ├── mutation-types.js
-│       └── mutations.js
-├── static #静态资源
-│   ├── addArticle.png
-│   ├── article.png
-│   ├── dashboard.png
-│   └── updateArtilce.png
-├── test 
-    └── unit
-        ├── jest.conf.js
-        ├── setup.js
-        └── specs
+│   ├── article
+│   │   └── index.js
+│   ├── index.js
+│   └── user
+│       └── index.js
+├── server
+│   ├── DBhelper
+│   │   └── dbHelper.js
+│   ├── DBsql
+│   │   ├── articleDao.js
+│   │   ├── categoryDao.js
+│   │   ├── category_articleDao.js
+│   │   ├── homeDao.js
+│   │   ├── menuDao.js
+│   │   └── userDao.js
+│   ├── controller
+│   │   ├── articleManagementController.js
+│   │   ├── categoryManagementController.js
+│   │   ├── category_articleController.js
+│   │   ├── homeManagementController.js
+│   │   ├── menuManagementController.js
+│   │   ├── pageManagementController.js
+│   │   └── userManagementController.js
+│   ├── models
+│   │   ├── article.js
+│   │   ├── category.js
+│   │   ├── category_article.js
+│   │   ├── home.js
+│   │   ├── menu.js
+│   │   ├── page.js
+│   │   ├── role.js
+│   │   └── user.js
+│   └── utils
+│       └── filterData.js
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   └── styles
+│   ├── components
+│   │   ├── breadcrumb.vue
+│   │   ├── bus.js
+│   │   ├── editor.vue
+│   │   ├── layout.vue
+│   │   └── navcontent.vue
+│   ├── config
+│   │   ├── env.js
+│   │   └── mUtils.js
+│   ├── favicon.ico
+│   ├── filters
+│   │   ├── commonFilter.js
+│   │   ├── date.js
+│   │   └── index.js
+│   ├── langs
+│   │   └── zh_CN.js
+│   ├── libs
+│   │   ├── baseUrl.js
+│   │   ├── fetch.js
+│   │   ├── tree
+│   │   └── util.js
+│   ├── main.js
+│   ├── pages
+│   │   ├── articleManage
+│   │   ├── home
+│   │   ├── login
+│   │   ├── menuManage
+│   │   └── userManage
+│   ├── router
+│   │   ├── index.js
+│   │   └── menuGroup.js
+│   ├── service
+│   │   ├── getData.js
+│   │   └── randomWord.js
+│   ├── skins
+│   │   └── lightgray
+│   └── store
+│       ├── action.js
+│       ├── index.js
+│       ├── mutation-types.js
+│       └── mutations.js
+├── static
+└── test
+    └── unit
+        ├── jest.conf.js
+        ├── setup.js
+        └── specs
 
 ```
 
