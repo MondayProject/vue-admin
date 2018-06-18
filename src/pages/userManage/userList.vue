@@ -111,7 +111,8 @@ export default {
           title: "編號",
           type: "index",
           width: 60,
-          align: "center"
+          align: "center",
+          sortable: true
         },
         {
           title: "創建日期",
@@ -133,16 +134,19 @@ export default {
         },
         {
           title: "姓名",
-          key: "userName"
+          key: "userName",
+          sortable: true
         },
         {
           title: "電話",
-          key: "phonenum"
+          key: "phonenum",
+          sortable: true
         },
         {
           title: "工作證號",
           width: 200,
-          key: "identifyNo"
+          key: "identifyNo",
+          sortable: true
         },
         {
           title: "性別",
@@ -153,16 +157,19 @@ export default {
               ? filters.refUserRoleCode(row.refUserRoleCode)
               : row.refUserRoleCode;
             return h("span", refUserRoleCode);
-          }
+          },
+          sortable: true
+
         },
         {
-          title: "目前狀態",
+          title: "狀態",
           key: "status",
           render: (h, params) => {
             const row = params.row;
             const status = row.status ? filters.userStatus(row.status) : row.status;
             return h("span", status);
-          }
+          },
+          sortable: true
         },
         {
           title: "操作",

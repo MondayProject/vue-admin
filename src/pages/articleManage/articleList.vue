@@ -111,8 +111,9 @@ export default {
         {
           title: "編號",
           type: "index",
-          width: 60,
-          align: "center"
+          width: 80,
+          align: "center",
+          sortable: true
         },
         {
           title: "發布日期",
@@ -124,20 +125,24 @@ export default {
               ? filters.formatDate(row.createTime, "yyyy-MM-dd hh:mm:ss")
               : "";
             return h("span", time);
-          }
+          },
+          sortable: true
         },
         {
           title: "標題",
-          key: "articleTitle"
+          key: "articleTitle",
+          sortable: true
         },
         {
           title: "作者",
-          key: "userCode"
+          key: "userCode",
+          sortable: true
         },
         {
           title: "摘要",
           key: "abstract",
-          width: 200
+          width: 130,
+          sortable: true
         },
         {
           title: "分類",
@@ -166,10 +171,11 @@ export default {
               }
             }
             return a;
-          }
+          },
+          sortable: true
         },
         {
-          title: "文章狀態",
+          title: "狀態",
           key: "status",
           render: (h, params) => {
             const row = params.row;
@@ -199,7 +205,8 @@ export default {
                 "未發布"
               );
             }
-          }
+          },
+          sortable: true
         },
         {
           title: "操作",

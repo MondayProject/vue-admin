@@ -137,11 +137,13 @@ export default {
         },
         {
           title: "姓名",
-          key: "menuName"
+          key: "menuName",
+          sortable: true
         },
         {
           title: "手機號碼",
-          key: "userCode"
+          key: "userCode",
+          sortable: true
         },
         {
           title: "目前狀況",
@@ -152,7 +154,8 @@ export default {
               ? filters.platType(row.platType)
               : row.platType;
             return h("span", platType);
-          }
+          },
+          sortable: true
         },
         {
           title: "病患性別",
@@ -163,7 +166,8 @@ export default {
               ? filters.menuLevel(row.menuLevel)
               : row.menuLevel;
             return h("span", menuLevel);
-          }
+          },
+          sortable: true
         },
         {
           title: "操作",
