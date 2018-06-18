@@ -7,32 +7,12 @@ export default {
       name: "個管師管理",
       icon: "person-stalker"
   },
-  roleManage: {
-      name: "角色管理",
-      icon: "ios-people"
-  },
-  categoryManage: {
-      name: "文章分类",
-      icon: "social-buffer"
-  },
   articleManage: {
       name: "衛教文章管理",
       icon: "ios-book"
   },
-  tagsManage: {
-      name: "文章标签",
-      icon: "ios-pricetags"
-  },
-  commentManage: {
-      name: "评论管理",
-      icon: "chatbox-working"
-  },
   menuManage: {
       name: "病患管理",
       icon: "ios-list"
-  },
-  pageManage: {
-      name: "页面管理",
-      icon: "ios-browsers"
   }
 };

@@ -66,36 +66,6 @@ const routers = {
       title: '病患資訊'
     }
   }],
-  roleManage: [{
-    path: '/roleManage/roleList',
-    name: 'roleList',
-    component: () => import('@/pages/roleManage/roleList'),
-    meta: {
-      title: '角色列表'
-    }
-  }, {
-    path: '/roleManage/addRole',
-    name: 'addRole',
-    component: () => import('@/pages/roleManage/addRole'),
-    meta: {
-      title: '新增角色'
-    }
-  }],
-  pageManage: [{
-    path: '/pageManage/pageList',
-    name: 'pageList',
-    component: () => import('@/pages/pageManage/pageList'),
-    meta: {
-      title: '页面列表'
-    }
-  }, {
-    path: '/pageManage/addPage',
-    name: 'addPage',
-    component: () => import('@/pages/pageManage/addPage'),
-    meta: {
-      title: '新增页面'
-    }
-  }],
   userManage: [{
     path: '/userManage/userList',
     name: 'userList',
@@ -117,62 +87,6 @@ const routers = {
     show: 'false',
     meta: {
       title: '個管師資料'
-    }
-  }],
-  categoryManage: [{
-    path: '/categoryManage/categoryList',
-    name: 'categoryList',
-    component: () => import('@/pages/categoryManage/categoryList'),
-    meta: {
-      title: '分类列表'
-    }
-  }, {
-    path: '/categoryManage/addCategory',
-    name: 'addCategory',
-    component: () => import('@/pages/categoryManage/addCategory'),
-    meta: {
-      title: '新增分类'
-    }
-  }
-  ],
-  tagsManage: [{
-    path: '/categoryManage/addCategory',
-    name: 'addCategory',
-    component: () => import('@/pages/categoryManage/addCategory'),
-    meta: {
-      title: '新增分类'
-    }
-  }, {
-    path: '/userManage/addUser',
-    name: 'addUser',
-    component: () => import('@/pages/userManage/addUser'),
-    meta: {
-      title: '新增個管師'
-    }
-  }, {
-    path: '/userManage/userList/userDesc',
-    name: 'userDesc',
-    component: () => import('@/pages/userManage/userDesc'),
-    show: 'false',
-    meta: {
-      title: '用户详情'
-    }
-  }],
-  commentManage: [{
-    path: '/categoryManage/addCategory',
-    name: 'addCategory',
-    component: () => import('@/pages/categoryManage/addCategory'),
-    meta: {
-      title: '新增分类'
-    }
-  },
-   {
-    path: '/userManage/userList/userDesc',
-    name: 'userDesc',
-    component: () => import('@/pages/userManage/userDesc'),
-    show: 'false',
-    meta: {
-      title: '用户详情'
     }
   }]
 }
