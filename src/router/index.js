@@ -80,14 +80,6 @@ const routers = {
     meta: {
       title: '新增角色'
     }
-  }, {
-    path: '/roleManage/roleList/roleDesc',
-    name: 'roleDesc',
-    component: () => import('@/pages/roleManage/roleDesc'),
-    show: 'false',
-    meta: {
-      title: '角色详情'
-    }
   }],
   pageManage: [{
     path: '/pageManage/pageList',
@@ -141,22 +133,14 @@ const routers = {
     meta: {
       title: '新增分类'
     }
-  }, {
-    path: '/categoryManage/categoryList/categoryDesc',
-    name: 'categoryDesc',
-    component: () => import('@/pages/categoryManage/categoryDesc'),
-    show: 'false',
-    meta: {
-      title: '分类详情'
-    }
-  }],
+  }
+  ],
   tagsManage: [{
-    path: '/categoryManage/categoryList/categoryDesc',
-    name: 'categoryDesc',
-    component: () => import('@/pages/categoryManage/categoryDesc'),
-    show: 'false',
+    path: '/categoryManage/addCategory',
+    name: 'addCategory',
+    component: () => import('@/pages/categoryManage/addCategory'),
     meta: {
-      title: '分类详情'
+      title: '新增分类'
     }
   }, {
     path: '/userManage/addUser',
@@ -175,12 +159,11 @@ const routers = {
     }
   }],
   commentManage: [{
-    path: '/categoryManage/categoryList/categoryDesc',
-    name: 'categoryDesc',
-    component: () => import('@/pages/categoryManage/categoryDesc'),
-    show: 'false',
+    path: '/categoryManage/addCategory',
+    name: 'addCategory',
+    component: () => import('@/pages/categoryManage/addCategory'),
     meta: {
-      title: '分类详情'
+      title: '新增分类'
     }
   },
    {
