@@ -30,24 +30,6 @@
 - [ ] iview
 - [ ] vue-echarts
 
-### 效果
-
-<p align="center">
-<a href="https://github.com/shawn2016/vue-admin.git"><img src="https://github.com/shawn2016/vue-admin/blob/master/static/dashboard.png" /></a>
-</p>
-
-<p align="center">
-<a href="https://github.com/shawn2016/vue-admin.git"><img src="https://github.com/shawn2016/vue-admin/blob/master/static/article.png" /></a>
-</p>
-
-<p align="center">
-<a href="https://github.com/shawn2016/vue-admin.git"><img src="https://github.com/shawn2016/vue-admin/blob/master/static/addArticle.png" /></a>
-</p>
-
-<p align="center">
-<a href="https://github.com/shawn2016/vue-admin.git"><img src="https://github.com/shawn2016/vue-admin/blob/master/static/updateArtilce.png" /></a>
-</p>
-
 ### 下载&安装
 
 ``` bash
