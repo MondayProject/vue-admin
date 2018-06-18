@@ -1,41 +1,41 @@
 <template>
   <div>
     <i-layout>
-      <i-breadcrumb t2="菜单列表" t3="菜单详情">
+      <i-breadcrumb t2="病患列表" t3="詳細資訊">
         <Button class="fr vue-back-btn" @click="$router.go(-1)" shape="circle">返回</Button>
       </i-breadcrumb>
       <div class="vue-panel">
         <Row type="flex" justify="center">
           <Col span="12" :md="14" :lg="12" :xs="24" :sm="24">
           <Form ref="formValidate" :model="formValidate" :label-width="100">
-            <FormItem label="菜单编码:" prop="menuId">
+            <FormItem label="病患編碼:" prop="menuId">
               <label>{{formValidate.menuId}}</label>
             </FormItem>
-            <FormItem label="菜单名称:" prop="menuName">
+            <FormItem label="病患姓名:" prop="menuName">
               <label>{{formValidate.menuName}}</label>
             </FormItem>
-            <FormItem label="创建时间:" prop="createTime">
+            <FormItem label="初診時間:" prop="createTime">
               <label>{{formValidate.createTime | formatDate}}</label>
             </FormItem>
-            <FormItem label="最近更新时间:" prop="updateTime">
+            <FormItem label="最近更新時間:" prop="updateTime">
               <label>{{formValidate.updateTime | formatDate}}</label>
             </FormItem>
-            <FormItem label="所属平台:" prop="platType">
+            <FormItem label="目前狀況:" prop="platType">
               <label>{{formValidate.platType | platType}}</label>
             </FormItem>
-            <FormItem label="菜单图标编码:" prop="icon">
+            <FormItem label="病歷號:" prop="icon">
               <label>{{formValidate.icon}}</label>
             </FormItem>
-            <FormItem label="菜单级别:" prop="menuLevel">
+            <FormItem label="病患性別:" prop="menuLevel">
               <label>{{formValidate.menuLevel | menuLevel}}</label>
             </FormItem>
-            <FormItem label="菜单地址:" prop="url">
+            <FormItem label="地址:" prop="url">
               <label>{{formValidate.url}}</label>
             </FormItem>
-            <FormItem label="上级菜单:">
+            <FormItem label="出生日期:">
               <label>{{formValidate.pmenuId}}</label>
             </FormItem>
-            <FormItem label="菜单描述:" prop="remark">
+            <FormItem label="備註:" prop="remark">
               <label>{{formValidate.remark}}</label>
             </FormItem>
 

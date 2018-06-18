@@ -55,8 +55,8 @@ import {
   saveArticle,
   getArticleList,
   updateArticle,
-  getUserList,
-  getCategoryList
+  getUserList
+  // getCategoryList
 } from "../../service/getData";
 export default {
   name: "editArticle",
@@ -77,9 +77,9 @@ export default {
   },
   data() {
     const validateCategory = (rule, value, callback) => {
-      if (!this.formItem.userCode) {
-        callback(new Error("請選擇文章作者"));
-      }
+      // if (!this.formItem.userCode) {
+      //   callback(new Error("請選擇文章作者"));
+      // }
       if (value.length === 0) {
         callback(new Error("請選擇文章分類"));
       } else {
@@ -95,7 +95,16 @@ export default {
     };
 
     return {
-      categoryList: [],
+      categoryList: [
+        {
+          _id: "New York",
+          categoryName: "New York"
+        },
+        {
+          _id: "London",
+          categoryName: "London"
+        }
+      ],
       breadcrumbTitle: "",
       userList: [],
       ruleValidate: {
@@ -122,7 +131,7 @@ export default {
         ],
         userCode: [
           {
-            required: true,
+            // required: true,
             message: "請選擇文章作者",
             trigger: "blur"
           }
@@ -143,7 +152,7 @@ export default {
         ],
         category: [
           {
-            required: true,
+            // required: true,
             validator: validateCategory,
             trigger: "change"
           }
@@ -234,7 +243,7 @@ export default {
         if (valid) {
           this.save();
         } else {
-          this.$Message.error("Fail!");
+          this.$Message.error("尚有欄位未填寫完成！");
         }
       });
     },

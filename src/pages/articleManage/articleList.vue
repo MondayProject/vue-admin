@@ -145,36 +145,6 @@ export default {
           sortable: true
         },
         {
-          title: "分類",
-          width: 180,
-          key: "category",
-          render: (h, params) => {
-            const row = params.row;
-            let a = [];
-            let color = ["blue", "green", "red", "yellow"];
-            let j = 0;
-            for (let i = 0; i < params.row.category.length; i++) {
-              j++;
-              a.push(
-                h(
-                  "Tag",
-                  {
-                    props: {
-                      color: color[j]
-                    }
-                  },
-                  params.row.category[i]
-                )
-              );
-              if (j === 4) {
-                j = 0;
-              }
-            }
-            return a;
-          },
-          sortable: true
-        },
-        {
           title: "狀態",
           key: "status",
           render: (h, params) => {

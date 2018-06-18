@@ -118,7 +118,7 @@ export default {
           align: "center"
         },
         {
-          title: "看病日期",
+          title: "初診日期",
           width: 150,
           sortable: true,
           key: "createTime",

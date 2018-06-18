@@ -8,31 +8,30 @@
         <Row>
           <h1 class="text-center">{{formValidate.articleTitle}}</h1>
           <div class="text-center">
-            <span class="span-title">发布时间：</span>
+            <span class="span-title">發佈時間：</span>
             <span class="desc">{{formValidate.updateTime | formatDate}}</span>
-            <span class="span-title" style="margin-left:15px;">来源：</span>
+            <span class="span-title" style="margin-left:15px;">作者：</span>
             <span class="desc">{{formValidate.userCode}}</span>
           </div>
 
-          <div class="category">
+          <!-- <div class="category">
             <span class="span-title">文章分类：</span>
             <span v-for="(x,index) in formValidate.category">
               <Tag v-if="index%2===0" color="red">{{x}}</Tag>
               <Tag v-if="index%2!==0" color="blue">{{x}}</Tag>
             </span>
-          </div>
+          </div> -->
           <div ref="content">
 
           </div>
           <div class="status">
-            文章状态：
-            <span class="span-title">文章状态：</span>
+            <span class="span-title">文章狀態：</span>
             <span>
               {{formValidate.status | status}}
             </span>
           </div>
           <div class="tags">
-            <span class="span-title">文章标签：</span>
+            <span class="span-title">文章標籤：</span>
             <span :key="x" v-for="(x,index) in formValidate.tags">
               <Tag v-if="index%2===0" color="yellow">{{x}}</Tag>
               <Tag v-if="index%2!==0" color="green">{{x}}</Tag>

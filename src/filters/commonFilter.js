@@ -1,55 +1,55 @@
 /**
  * 用户类型
- * @param {*} str 
+ * @param {*} str
  */
 export function refUserRoleCode(str = "") {
     switch (str) {
         case 'ADMIN':
-            return '管理员'
+            return '個管師'
         case 'USER':
-            return '普通用户'
+            return '病患'
         default:
             return ' '
     }
 }
 /**
  * 用户状态
- * @param {*} str 
+ * @param {*} str
  */
 export function userStatus(str = "") {
     switch (str) {
         case "100":
-            return '启用'
+            return '在職'
         case "500":
-            return '禁用'
+            return '離職'
         default:
             return ' '
     }
 }
 /**
  * 文章状态
- * @param {*} str 
+ * @param {*} str
  */
 export function articleStatus(str = "") {
     switch (str) {
         case "100":
-            return '已发布'
+            return '已發布'
         case "500":
-            return '未发布'
+            return '未發布'
         default:
             return ' '
     }
 }
 /**
  * 所属平台
- * @param {*} str 
+ * @param {*} str
  */
 export function platType(str = "") {
     switch (str) {
         case "100":
-            return '前台'
+            return '收案中'
         case "200":
-            return '后台'
+            return '已結案'
         default:
             return ' '
     }
@@ -57,14 +57,14 @@ export function platType(str = "") {
 
 /**
  * 菜单级别
- * @param {*} str 
+ * @param {*} str
  */
 export function menuLevel(str = "") {
     switch (str) {
         case "100":
-            return '一级'
+            return '男'
         case "200":
-            return '二级'
+            return '女'
         default:
             return ' '
     }

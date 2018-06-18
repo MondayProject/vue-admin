@@ -19,7 +19,7 @@ exports.addData = function (model, conditions, options, callback) {
         model.create(conditions, function (err, result) {
             console.log('++++++++++++++++', result)
             if (err) {
-                console.log(error);
+                console.log(err);
                 let obj = filterData({
                     respMsg: '伺服器異常',
                     respCode: '999999'
